@@ -3,7 +3,7 @@ import sys
 
 def rush(x, y):
     """
-    Display a square using '*' for borders and diagonals '/' '\\' for corners.
+    Display a square using '*' for borders and '/' '\' for corners.
 
     Args:
         x (int): Width of the square
@@ -13,5 +13,16 @@ def rush(x, y):
         print("Invalid size", file=sys.stderr)
         return
 
-    # Your implementation here
-    pass
+    if x == 1:
+        for _ in range(y):
+            print('*')
+        return
+
+    if y == 1:
+        print('*' * x)
+        return
+
+    print('/' + '*' * (x - 2) + '\\')
+    for _ in range(y - 2):
+        print('*' + ' ' * (x - 2) + '*')
+    print('\\' + '*' * (x - 2) + '/')
